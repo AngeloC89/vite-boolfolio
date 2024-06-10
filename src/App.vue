@@ -1,9 +1,16 @@
 <template>
   <h1 class="text-center">Ciao</h1>
-  <ul >
-    <li v-for="project in projects" :key="project.id">{{ project.title }}</li>
+  <div class="row col-10 gap-3 m-auto">
+<div v-for="project in projects" :key="project.id" class="card" style="width: 18rem;">
+    <img class="card-img-top" :src="store.imgBaseUrl + project.image" :alt=" project.title ">
+    <div class="card-body">
+      <h5 class="card-title">{{ project.title }}</h5>
+      <p class="card-text text-truncate">{{ project.content }}</p>
+    </div>
+
+  </div>
   
-  </ul>
+  </div>
   <i class="fa fa-solid fa-home"></i>
 </template>
 
@@ -31,6 +38,7 @@
     },
     mounted() {
       this.getAllProjects()
+      console.log(this.store.imgBaseUrl )
     },
   }
 </script>
