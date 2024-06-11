@@ -38,7 +38,7 @@
     },
     mounted() {
       this.getAllProjects()
-      console.log(this.store.imgBaseUrl)
+      
     },
   }
 </script>
