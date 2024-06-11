@@ -26,7 +26,10 @@
         axios.get(`${this.store.apiBaseUrl}/projects/${this.$route.params.slug}`)
           .then((res) => {
             this.project = res.data.results;
-          });
+          }).catch((error) => {
+            console.log(error);
+            this.$router.push({ name: 'not-found' });
+          })
           
       },
     },

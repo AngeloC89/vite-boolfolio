@@ -12,4 +12,12 @@
 
 <style lang="scss" scoped>
 
+
+div{
+    height: 80vh;
+    h1{
+        color: red;
+    }
+ 
+}
 </style>
