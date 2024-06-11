@@ -5,7 +5,7 @@
   <MainComponent />
  
 
-  <i class="fa fa-solid fa-home"></i>
+
 </template>
 
 <script>
