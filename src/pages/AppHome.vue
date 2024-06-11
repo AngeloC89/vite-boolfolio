@@ -1,12 +1,13 @@
 <template>
-    <header>
-<h1>Header 1</h1>
-    </header>
+    <div>
+
+    </div>
 </template>
 
 <script>
     export default {
-        name: 'HeaderComponent',
+    name: 'AppHome',
+        
     }
 </script>
 
