@@ -3,6 +3,7 @@
   <h1 class="text-center">{{ project?.title }}</h1>
   <img class="d-block mx-auto" :src=" store.imgBaseUrl + project?.image " :alt="project?.title">
   <p class="text-center fw-bolder fs-2">{{ project?.content }}</p>
+ x
 
 
 </template>
