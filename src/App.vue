@@ -4,7 +4,7 @@
   <HeaderComponent />
   <MainComponent />
   <button @click="console.log(this.store.technologies)">pigia</button>
- 
+
 
 
 </template>
@@ -23,13 +23,32 @@
     data() {
       return {
         store,
-        projects: []
+
       }
     },
-    
+    methods: {
+      getTechnologies() {
+        
+        axios
+          .get(this.store.apiBaseUrl + "/technologies")
+          .then((res) => {
+          
+            this.store.technologies = res.data.results;
+
+            
+            console.log(res.data);
+          });
+      },
+
+    },
+    mounted() {
+      this.getTechnologies()
+      console.log(this.store.technologies);
+
+
+    },
+
   }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

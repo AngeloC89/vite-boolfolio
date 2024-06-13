@@ -5,6 +5,8 @@
         <div class="card-body">
             <h5 class="card-title">{{ item.title }}</h5>
             <p class="card-text text-truncate">{{ item.content }}</p>
+            <p>{{ item.technologies?.name }}</p>
+            
 
 
             <router-link :to="{ name: 'project-details', params: { slug: item.slug } }"
