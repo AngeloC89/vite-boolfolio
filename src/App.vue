@@ -3,8 +3,7 @@
 
   <HeaderComponent />
   <MainComponent />
-  <button @click="console.log(this.store.technologies)">pigia</button>
-
+  
 
 
 </template>
@@ -36,14 +35,14 @@
             this.store.technologies = res.data.results;
 
             
-            console.log(res.data);
+            //console.log(res.data);
           });
       },
 
     },
     mounted() {
       this.getTechnologies()
-      console.log(this.store.technologies);
+   
 
 
     },

@@ -5,7 +5,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ item.title }}</h5>
             <p class="card-text text-truncate">{{ item.content }}</p>
-            <p>{{ item.technologies?.name }}</p>
+            <span class="badge rounded-pill text-bg-warning me-3">{{ item.technologies?.name }}</span>
             
 
 
