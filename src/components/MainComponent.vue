@@ -15,6 +15,23 @@ data() {
         projects: []
       }
     },
+    methods: {
+    
+
+    getCategories() {
+              axios.get('http://127.0.0.1:8000/api/technologies').then((res) => {
+                  console.log(res.data);
+                  this.store.technologies = res.data.results;
+                  
+              });
+          },
+  },
+  mounted() {
+    this.getCategories()
+    console.log(this.store.technologies);
+    
+    
+  },
 }
 </script>
 

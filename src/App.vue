@@ -3,6 +3,7 @@
 
   <HeaderComponent />
   <MainComponent />
+  <button @click="console.log(this.store.technologies)">pigia</button>
  
 
 
@@ -25,21 +26,7 @@
         projects: []
       }
     },
-    methods: {
-      getAllProjects() {
-        axios
-          .get(this.store.apiBaseUrl + '/projects')
-          .then((res) => {
-            this.projects = res.data.results
-
-            //console.log(res.data)
-          })
-      }
-    },
-    mounted() {
-      this.getAllProjects()
-      
-    },
+    
   }
 </script>
 

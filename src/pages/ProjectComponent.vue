@@ -3,7 +3,8 @@
   <h1 class="text-center">{{ project?.title }}</h1>
   <img class="d-block mx-auto" :src=" store.imgBaseUrl + project?.image " :alt="project?.title">
   <p class="text-center fw-bolder fs-2">{{ project?.content }}</p>
- x
+  <h3>{{ project?.type.name }}</h3>
+  
 
 
 </template>
@@ -15,6 +16,7 @@
 
   export default {
     name: 'ProjectComponent',
+    props: ['item'],
     data() {
       return {
         store,
