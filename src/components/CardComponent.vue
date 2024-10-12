@@ -5,7 +5,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ item.title }}</h5>
             <p class="card-text text-truncate">{{ item.content }}</p>
-            <span class="badge rounded-pill text-bg-warning me-3">{{ item.technologies?.name }}</span>
+            <span v-for="(item, index) in item.technologies" class="badge rounded-pill text-bg-warning me-3">{{ item?.name }}</span>
             
 
 

@@ -2,15 +2,15 @@
   <div class="container my-3">
     <div class="d-flex align-items-center">
       <h1 class="my-2">Project List</h1>
-      <select class="ms-auto h-50" name="technologies" id="technologies" >
+      <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams(1)" v-model="techno">
         <option value="">All Technologies</option>
-        <option v-for="techology in store.technologies" value="techology.id">{{ techology?.name }}</option>
+        <option :value="technology.id" v-for="technology in store.technologies" :key="technology.id" >{{ technology?.name }}</option>
       </select>
     </div>
     <div class="row">
     
-      <div class="col-12 col-lg-6" v-for="project in projects" :key="project.id">
-          <CardComponent :item="project" />
+      <div class="col-12 col-lg-6" v-for="(project, index) in projects" :key="project.id">
+          <CardComponent :item="project" :index="index" />
       </div>
   </div>
     <!-- pagination for the cards.... visible only in projectList -->
@@ -57,32 +57,38 @@ import CardComponent from "../components/CardComponent.vue";
         currentPage: null,
         totalPages: null,
         params: null,
-        techno: [],
+        techno: null,
       };
     },
     methods: {
       setParams(thepage) {
+        console.log(this.techno);
         this.currentPage = thepage;
         this.params = {
           page: this.currentPage,
         };
         if (this.techno) {
-          this.params.techno = this.techno
+          this.params.technologies = this.techno
         }
         this.getAllProjects();
       },
 
       getAllProjects() {
+        //this.store.loader = true;
         axios
           .get(this.store.apiBaseUrl + "/projects", { params: this.params })
           .then((res) => {
             this.projects = res.data.results.data;
 
-            this.currentPage = res.data.results.current_page;
-            this.totalPages = res.data.results.last_page;
+            this.currentPage = res.data.current_page;
+            this.totalPages = res.data.last_page;
             this.params = null;
 
             console.log(this.projects);
+          }).catch((error) => {
+            console.log(error);
+          }).finally(() => {
+            this.store.loader = false;
           });
       },
     },
@@ -90,12 +96,13 @@ import CardComponent from "../components/CardComponent.vue";
     computed: {
         selectedTechnology() {
             const technology = this.store.technologies.find(technology => technology.id == this.techno);
-            return technology ? technology.name : '';
+            returnstechnology ? technology.name : '';
         },
         
     },
     mounted() {
       this.getAllProjects();
+      console.log(this.projects);
      
     
     },
