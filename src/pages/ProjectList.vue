@@ -1,7 +1,7 @@
 <template>
   <div class="container my-3">
     <div class="d-flex align-items-center">
-      <h1 class="my-2">Project List</h1>
+      <h1 class="my-2">Projects List</h1>
       <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams(1)" v-model="techno">
         <option value="">All Technologies</option>
         <option :value="technology.id" v-for="technology in store.technologies" :key="technology.id" >{{ technology?.name }}</option>
@@ -9,7 +9,7 @@
     </div>
     <div class="row">
     
-      <div class="col-12 col-lg-6" v-for="(project, index) in projects" :key="project.id">
+      <div class="col-12 col-lg-6" v-for="(project, index) in store.projects" :key="project.id">
           <CardComponent :item="project" :index="index" />
       </div>
   </div>
@@ -53,7 +53,6 @@ import CardComponent from "../components/CardComponent.vue";
     data() {
       return {
         store,
-        projects: [],
         currentPage: null,
         totalPages: null,
         params: null,
@@ -78,13 +77,13 @@ import CardComponent from "../components/CardComponent.vue";
         axios
           .get(this.store.apiBaseUrl + "/projects", { params: this.params })
           .then((res) => {
-            this.projects = res.data.results.data;
+            this.store.projects = res.data.results.data;
 
-            this.currentPage = res.data.current_page;
-            this.totalPages = res.data.last_page;
-            this.params = null;
+            this.currentPage = res.data.results.current_page;
+            this.totalPages = res.data.results.last_page;
+           
 
-            console.log(this.projects);
+            console.log(this.store.projects);
           }).catch((error) => {
             console.log(error);
           }).finally(() => {
@@ -96,13 +95,13 @@ import CardComponent from "../components/CardComponent.vue";
     computed: {
         selectedTechnology() {
             const technology = this.store.technologies.find(technology => technology.id == this.techno);
-            returnstechnology ? technology.name : '';
+            return technology ? technology.name : '';
         },
         
     },
     mounted() {
       this.getAllProjects();
-      console.log(this.projects);
+      
      
     
     },

@@ -1,10 +1,21 @@
 <template>
 
   <h1 class="text-center">{{ project?.title }}</h1>
-  <img class="d-block mx-auto" :src=" store.imgBaseUrl + project?.image " :alt="project?.title">
+  <div v-if="images && images.length > 0">
+    <img
+      v-for="image in images"
+      :key="image.id"
+      class="d-block mx-auto"
+      :src="store.imgBaseUrl + image.path"
+      :alt="project?.title"
+    />
+  </div>
   <p class="text-center fw-bolder fs-2">{{ project?.content }}</p>
-  <p class="text-center fw-bolder fs-2">{{ project?.technologies.name }}</p>
-  
+  <div v-if="project?.technologies && project.technologies.length > 0">
+    <p v-for="technology in project.technologies" :key="technology.id" class="text-center fw-bolder fs-2">
+      {{ technology.name }}
+    </p>
+  </div>
  
   
 
@@ -23,14 +34,18 @@
       return {
         store,
         project: null,
+        images: null,
       };
     },
     methods: {
       getProjects() {
             // console.log(this.$route);
             axios.get(`${this.store.apiBaseUrl}/projects/${this.$route.params.slug}`).then((res) => {
-                console.log(res.data.results);
+                
                 this.project = res.data.results;
+                this.images = res.data.results.images;
+                console.log(this.project);
+                console.log(this.images);
             }).catch((error) => {
                 // console.log(error);
                 // console.log(error.response.data);
