@@ -11,9 +11,9 @@
     <div v-if="techno">
       <h3>{{ store.projects.length }} projects with {{ selectedTechnology }}</h3>
     </div>
-    <div class="row">
+    <div class="row my-3">
 
-      <div class="col-12 col-lg-6" v-for="(project, index) in store.projects" :key="project.id">
+      <div class="col-12 col-lg-6 my-5" v-for="(project, index) in store.projects" :key="project.id">
         <CardComponent :item="project" :index="index" />
       </div>
     </div>
