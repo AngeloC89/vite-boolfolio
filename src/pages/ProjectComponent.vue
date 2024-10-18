@@ -1,5 +1,6 @@
 <template>
 
+  <!-- the name of the project, is a link to view the demo -->
   <a :href="project?.link"><h1 class="text-center">{{ project?.title }}</h1></a>
   <div v-if="images && images.length > 0">
     <img 

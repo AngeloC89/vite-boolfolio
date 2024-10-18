@@ -1,18 +1,22 @@
 <template>
   <div class="container my-3">
     <div class="d-flex align-items-center">
-      <h1 class="my-2">Projects List</h1>
+      <h1 class="my-2 text-center">Projects list</h1>
       <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams(1)" v-model="techno">
         <option value="">All Technologies</option>
-        <option :value="technology.id" v-for="technology in store.technologies" :key="technology.id" >{{ technology?.name }}</option>
+        <option :value="technology.id" v-for="technology in store.technologies" :key="technology.id">{{ technology?.name
+          }}</option>
       </select>
     </div>
+    <div v-if="techno">
+      <h3>{{ store.projects.length }} projects with {{ selectedTechnology }}</h3>
+    </div>
     <div class="row">
-    
+
       <div class="col-12 col-lg-6" v-for="(project, index) in store.projects" :key="project.id">
-          <CardComponent :item="project" :index="index" />
+        <CardComponent :item="project" :index="index" />
       </div>
-  </div>
+    </div>
     <!-- pagination for the cards.... visible only in projectList -->
     <nav class="my-3">
 
@@ -42,7 +46,7 @@
 </template>
 
 <script>
-import CardComponent from "../components/CardComponent.vue";
+  import CardComponent from "../components/CardComponent.vue";
   import { store } from "../store.js";
   import axios from "axios";
   export default {
@@ -81,7 +85,7 @@ import CardComponent from "../components/CardComponent.vue";
 
             this.currentPage = res.data.results.current_page;
             this.totalPages = res.data.results.last_page;
-           
+
 
             console.log(this.store.projects);
           }).catch((error) => {
@@ -93,17 +97,17 @@ import CardComponent from "../components/CardComponent.vue";
     },
 
     computed: {
-        selectedTechnology() {
-            const technology = this.store.technologies.find(technology => technology.id == this.techno);
-            return technology ? technology.name : '';
-        },
-        
+      selectedTechnology() {
+        const technology = this.store.technologies.find(technology => technology.id == this.techno);
+        return technology ? technology.name : '';
+      },
+
     },
     mounted() {
       this.getAllProjects();
-      
-     
-    
+
+
+
     },
   };
 </script>
