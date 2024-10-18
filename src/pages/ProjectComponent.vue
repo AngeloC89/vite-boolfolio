@@ -1,10 +1,11 @@
 <template>
 
-  <h1 class="text-center">{{ project?.title }}</h1>
+  <a :href="project?.link"><h1 class="text-center">{{ project?.title }}</h1></a>
   <div v-if="images && images.length > 0">
-    <img
+    <img 
       v-for="image in images"
       :key="image.id"
+      id="img_demo"
       class="d-block mx-auto"
       :src="store.imgBaseUrl + image.path"
       :alt="project?.title"
@@ -71,4 +72,9 @@
 </script>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+#img_demo{
+  height: 500px;
+}
+</style>
