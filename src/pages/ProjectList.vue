@@ -1,19 +1,31 @@
 <template>
   <div class="container my-3">
-    <div class="d-flex align-items-center">
-      <h1 class="my-2 text-center">Projects list</h1>
-      <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams(1)" v-model="techno">
-        <option value="">All Technologies</option>
-        <option :value="technology.id" v-for="technology in store.technologies" :key="technology.id">{{ technology?.name
-          }}</option>
-      </select>
-    </div>
-    <div v-if="techno">
-      <h3>{{ store.projects.length }} projects with {{ selectedTechnology }}</h3>
-    </div>
-    <div class="row my-3">
 
-      <div class="col-12 col-lg-6 my-5" v-for="(project, index) in store.projects" :key="project.id">
+    <div class="d-flex align-items-center justify-content-between">
+      <h1 class="my-2 text-center">Projects list</h1>
+      <div id="select_technologies">
+        <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams(1)" v-model="techno">
+          <option  value="">All</option>
+          <option :value="technology.id" v-for="technology in store.technologies" :key="technology.id">{{
+            technology?.name
+            }}</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="counter_list">
+      <div v-if="techno">
+        <h3>{{ store.projects.length }} projects with {{ selectedTechnology }}</h3>
+
+      </div>
+    </div>
+
+
+
+    <div id="cards" class="row my-3 ">
+
+      <div class="col-12 col-lg-6 my-5 d-flex justify-content-center" v-for="(project, index) in store.projects"
+        :key="project.id">
         <CardComponent :item="project" :index="index" />
       </div>
     </div>
@@ -112,4 +124,23 @@
   };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+
+  .counter_list {
+    
+    height: 30px;
+  }
+
+  #technologies {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    
+    
+  }
+
+
+
+</style>
