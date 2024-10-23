@@ -1,42 +1,80 @@
 <template>
-    <h1 class="text-center">Home</h1>
+   
+    <h2 class="text-center my-4">Full Stack Web Developer</h2>
     <div id="profile_home">
-
-<img src="/images/Angelo.png" alt="Angelo">
-<div id="description_profile">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam officia minima quos beatae harum a placeat, modi voluptatem ipsum, repellendus eum quis quasi? Obcaecati, dolores cumque! Ut, esse voluptates. Qui rerum corporis odit, quo dignissimos sint eos illo eveniet quae accusantium quis! Impedit quibusdam tempore aliquam esse sapiente itaque cupiditate, dolores obcaecati accusamus, modi consectetur ab unde ut aspernatur doloribus officiis fuga, consequatur exercitationem similique excepturi deserunt molestias quis molestiae beatae. Inventore eius nostrum quam qui quibusdam obcaecati quisquam natus reprehenderit cum laudantium suscipit, veritatis dolorem dolores eveniet cupiditate temporibus maiores ex fugit, delectus ut, dolor harum! Quidem debitis quasi nulla fugiat nihil assumenda accusamus aperiam corporis temporibus officia ad, tempora optio voluptatum maiores enim autem aliquam recusandae, odit modi numquam ipsa animi labore. Vero nihil explicabo eligendi cum mollitia tenetur dolorum tempora deleniti recusandae iure omnis, aliquid quidem laudantium libero deserunt doloremque consectetur rerum atque consequatur. Nesciunt a assumenda quis! Aperiam ratione libero, illo illum provident officiis nulla nobis sed ipsam quam sequi exercitationem, veniam amet. Quaerat, earum? Rerum fugiat aut asperiores omnis consequuntur eos obcaecati odio cupiditate ex? Obcaecati consequuntur vel dolor nisi quidem magni nam necessitatibus placeat et eligendi neque sed, illo nulla debitis quos libero alias molestiae unde? Omnis ipsa nulla blanditiis ducimus corrupti molestiae sunt fugit accusantium placeat quo culpa similique iure modi aut, saepe dolorum quisquam perspiciatis id expedita ullam quis, molestias excepturi eligendi dolore. Explicabo exercitationem reiciendis architecto ad eligendi ut molestias, iste dolorem odit fugit velit dignissimos, tempore illo quis aliquid dolore enim dolores nostrum? Molestias sequi odio nemo porro suscipit earum, saepe architecto omnis! Velit, doloremque aliquam. Eum iure nostrum sunt architecto rerum ab adipisci tenetur ex voluptas dolorem consequatur quae eos tempore earum perferendis corporis reiciendis illum dolore vel facere vitae pariatur dignissimos, quidem quia. Necessitatibus corporis deleniti tenetur et.
-</div>
-
+        <div id="circle_img"></div>
+        <img src="/images/Angelo.png" alt="Angelo">
     </div>
+<!-- Description of profile -->
+    <div id="description_profile">
+        <h3>Formazione</h3>
+        <p>La mia formazione come full stack web developer ha inizio nel 2024. Dopo numerose esperienze lavorative, prima nel settore alberghiero sia in Italia che all'estero, poi come autista di mezzi pesanti al nord italia, ho deciso di intraprendere una nuova carriera come programmatore.
+        </p>
+        
+        
+        
+    </div> 
 </template>
 
 <script>
     export default {
-    name: 'AppHome',
-    data() {
-        return {
-            
+        name: 'AppHome',
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+
         }
-    },
-    methods: {
-        
-    }
-        
+
     }
 </script>
 
 <style lang="scss" scoped>
 
-#profile_home{
-    border: 2px solid blue;
-    padding: 10px;
 
-    img{
-        width: 300px;
+    #profile_home {
+        
+        padding: 10px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        #circle_img {
+            padding: 10px;
+            width: 320px;
+            border-radius: 50%;
+            border-top: 2px solid white;
+            border-bottom: 2px solid white;
+            margin:auto;
+            aspect-ratio: 1;
+            animation: rotateImage 5s linear infinite;     
+            position: absolute;     
+        }
+
+        img {
+            border-radius: 50%;
+            width: 300px;
+
+        }
     }
 
-    #description_profile{
+    #description_profile {
+        border: 1px solid white;
+        margin-top: 50px;
         padding: 10px;
     }
-}
+
+    @keyframes rotateImage {
+        0% {
+            transform: rotate(0deg); /* Partenza da 0 gradi */
+        }
+        100% {
+            transform: rotate(360deg); /* Fine a 360 gradi */
+        }
+    }
+    
 </style>

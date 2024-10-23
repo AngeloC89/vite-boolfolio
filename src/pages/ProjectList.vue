@@ -1,11 +1,21 @@
 <template>
-  <div class="container my-3">
+  <div>
+    <h1 class="my-2 text-center">Projects</h1>
+    <div id="select_technologies">
+      <!-- counter -->
+      <div class="counter_list">
 
-    <div class="d-flex align-items-center justify-content-between">
-      <h1 class="my-2 text-center">Projects list</h1>
-      <div id="select_technologies">
+        <div v-if="techno">
+          <h4>{{ store.projects.length }} projects with {{ selectedTechnology }}</h4>
+        </div>
+
+      </div>
+      <!-- select -->
+      <div id="select">
+        <label class="text-white" for="technologies">Technologies</label>
+        <br>
         <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams(1)" v-model="techno">
-          <option  value="">All</option>
+          <option value="">All</option>
           <option :value="technology.id" v-for="technology in store.technologies" :key="technology.id">{{
             technology?.name
             }}</option>
@@ -13,48 +23,40 @@
       </div>
 
     </div>
-    <div class="counter_list">
-      <div v-if="techno">
-        <h3>{{ store.projects.length }} projects with {{ selectedTechnology }}</h3>
-
-      </div>
-    </div>
-
-
-
-    <div id="cards" class="row my-3 ">
-
-      <div class="col-12 col-lg-6 my-5 d-flex justify-content-center" v-for="(project, index) in store.projects"
-        :key="project.id">
-        <CardComponent :item="project" :index="index" />
-      </div>
-    </div>
-    <!-- pagination for the cards.... visible only in projectList -->
-    <nav class="my-3">
-
-      <ul class="pagination">
-        <!-- prev -->
-        <li class="page-item">
-          <a @click="setParams(currentPage - 1)" :class="{ disabled: currentPage === 1 }" class="page-link" href="#"
-            aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <!-- pages -->
-        <li class="page-item" v-for="page in totalPages" :key="page">
-          <a @click="setParams(page)" :class="{ active: currentPage === page }" class="page-link" href="#">{{ page
-            }}</a>
-        </li>
-        <!-- next -->
-        <li class="page-item">
-          <a @click="setParams(currentPage + 1)" :class="{ disabled: currentPage === totalPages }" class="page-link"
-            href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
   </div>
+
+  <div id="cards" class="row my-3 ">
+    <div class="col-12 col-lg-6 my-5 d-flex justify-content-center" v-for="(project, index) in store.projects"
+      :key="project.id">
+      <CardComponent :item="project" :index="index" />
+    </div>
+  </div>
+  <!-- pagination for the cards.... visible only in projectList -->
+  <nav class="my-3">
+
+    <ul class="pagination">
+      <!-- prev -->
+      <li class="page-item">
+        <a @click="setParams(currentPage - 1)" :class="{ disabled: currentPage === 1 }" class="page-link" href="#"
+          aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <!-- pages -->
+      <li class="page-item" v-for="page in totalPages" :key="page">
+        <a @click="setParams(page)" :class="{ active: currentPage === page }" class="page-link" href="#">{{ page
+          }}</a>
+      </li>
+      <!-- next -->
+      <li class="page-item">
+        <a @click="setParams(currentPage + 1)" :class="{ disabled: currentPage === totalPages }" class="page-link"
+          href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
 </template>
 
 <script>
@@ -72,7 +74,7 @@
         currentPage: null,
         totalPages: null,
         params: null,
-        techno: null,
+        techno: '',
       };
     },
     methods: {
@@ -89,7 +91,6 @@
       },
 
       getAllProjects() {
-        //this.store.loader = true;
         axios
           .get(this.store.apiBaseUrl + "/projects", { params: this.params })
           .then((res) => {
@@ -101,9 +102,10 @@
 
             console.log(this.store.projects);
           }).catch((error) => {
-            console.log(error);
+
+            console.log("Error fetching projects", error);
           }).finally(() => {
-            this.store.loader = false;
+        //loader
           });
       },
     },
@@ -117,9 +119,6 @@
     },
     mounted() {
       this.getAllProjects();
-
-
-
     },
   };
 </script>
@@ -128,17 +127,21 @@
 
 
   .counter_list {
-    
+
     height: 30px;
+    color: white;
   }
 
-  #technologies {
-    width: 200px;
+  #select_technologies {
+    width: 100%;
     padding: 10px;
     border: none;
-    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.75);
-    
-    
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+
+
+
   }
 
 
