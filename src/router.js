@@ -4,6 +4,7 @@ import ProjectList from "./pages/ProjectList.vue";
 import ProjectComponent from "./pages/ProjectComponent.vue";
 import NotFound from "./pages/NotFound.vue";
 import ContactComponet from "./pages/ContactComponet.vue";
+import AboutMeComponent from "./pages/AboutMeComponent.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -33,6 +34,11 @@ const router = createRouter({
       name: "contact",
       component: ContactComponet,
     },
+    {
+      path: "/about-me",
+      name: "about-me",
+      component: AboutMeComponent,
+    }
   ],
 });
 

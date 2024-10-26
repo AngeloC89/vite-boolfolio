@@ -1,0 +1,87 @@
+<template>
+
+
+
+  <!-- <ul class="ms-auto">
+                <li class="mx-3 list-unstyled">
+                    <a href="http://127.0.0.1:8000/" class="nav-link">Area riservata</a>
+                </li>
+            </ul> -->
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+    aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+
+  <div class="offcanvas offcanvas-start" data-bs-dismiss="offcanvas" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header d-flex flex-column">
+      <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+      <ul class="d-flex flex-column align-items-start">
+        <li v-for="(item, index) in menuItems" :key="index" class="list-unstyled">
+          <router-link :to="{ name: item.name }" class="nav-link" active-class="active">
+            {{ item.label }}
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "SidebarComponent",
+    data() {
+      return {
+        menuItems: [
+          {
+            name: "home",
+            label: "#Home",
+          },
+          {
+            name: "projects",
+            label: "#Projects",
+          },
+          {
+            name: "about-me",
+            label: "#About Me"
+          },
+
+
+          // {
+          //     name: 'contact',
+          //     label: 'Contact'
+          // }
+        ],
+
+        nam: "",
+      };
+    },
+
+  };
+</script>
+
+<style lang="scss" scoped>
+
+
+  .offcanvas {
+    width: 25%;
+    background-color: transparent;
+    box-shadow: inset 289px 0px 200px -64px rgb(255, 255, 255);
+    border: none;
+
+    ul {
+      margin-top: 100px;
+
+
+      li {
+        color: rgb(22, 22, 130);
+        font-size: 6rem;
+        font-weight: 500;
+        font-family: "Caveat", cursive;
+
+        a {
+          width: 400px;
+        }
+      }
+    }
+  }
+
+</style>

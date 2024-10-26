@@ -1,7 +1,7 @@
 <template>
 
 
-  <HeaderComponent />
+  <SidebarComponent />
   <MainComponent />
   
 
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-  import HeaderComponent from './components/HeaderComponent.vue';
+  import SidebarComponent from './components/SidebarComponent.vue';
   import MainComponent from './components/MainComponent.vue';
   import { store } from './store.js';
   import axios from 'axios';
   export default {
     name: 'App',
     components: {
-      HeaderComponent,
+      SidebarComponent,
       MainComponent,
     },
     data() {
