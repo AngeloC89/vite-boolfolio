@@ -1,9 +1,8 @@
 <template>
   <div id="pList">
     <div>
-      <h1 class="my-2 text-center">Projects</h1>
+      <h1 class="my-2 text-center">//Projects</h1>
     </div>
-
 
     <div id="counter_technologies">
       <!-- counter -->
@@ -26,14 +25,14 @@
     </div>
   </div>
 
-  <div id="cards" class="row my-3 p-0 w-100">
-    <div class="col-12 col-lg-12 my-5 d-flex justify-content-center p-0" v-for="(project, index) in store.projects"
-      :key="project.id">
+  <div id="box-card" class="row my-3 mx-0 p-0">
+    <div id="proj" class="col-12 col-lg-12 my-3 d-flex justify-content-center"
+      v-for="(project, index) in store.projects" :key="project.id">
       <CardComponent :item="project" :index="index" />
     </div>
   </div>
   <!-- pagination for the cards.... visible only in projectList -->
-  <nav class="my-3">
+  <nav v-if="store.projects.length > 4" class="my-3">
     <ul class="pagination">
       <!-- prev -->
       <li class="page-item">
@@ -124,13 +123,11 @@
 
 <style lang="scss" scoped>
   #pList {
-
     padding: 20px;
-
 
     .counter_list {
       height: 30px;
-      color: white;
+      color: rgb(22, 22, 130);
     }
 
     #counter_technologies {
@@ -141,10 +138,38 @@
       align-items: end;
       justify-content: space-between;
     }
+  }
 
-    #cards {
-      overflow-y: scroll;
-      height: 78vh; //l'altezza serve per far funzionare lo scrolling ma è da sistemare
+  #box-card {
+    overflow-y: scroll;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    #proj {
+      width: 50%;
+      transition: 1s;
+    }
+
+    #proj:nth-child(odd) {
+      transform: translateX(15%) rotate(-2deg);
+
+
+      /* Sposta a sinistra e ruota leggermente */
+    }
+
+    #proj:nth-child(even) {
+      transform: translateX(-15%) rotate(2deg);
+
+      /* Sposta a destra e ruota leggermente */
+    }
+
+    #proj:hover {
+      transform: scale(1.1) rotate(0deg);
+      transition: 1s;
+      /* Porta in primo piano la card */
     }
 
   }

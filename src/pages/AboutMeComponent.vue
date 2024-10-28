@@ -1,11 +1,14 @@
 <template>
     <div>
         <div class="text-center my-3">
-            <h2>"{{ this.nam }}"</h2>
+            <h1>//{{ this.nam }}</h1>
         </div>
         <div id="profile_home">
             <div id="circle_img"></div>
-            <img src="/images/Angelo.png" alt="Angelo">
+            <div>
+                <img src="/images/Angelo.png" alt="Angelo">
+            </div>
+            
         </div>
     </div>
 </template>
@@ -41,16 +44,18 @@
 
 <style lang="scss" scoped>
 
-h2 {
+h1 {
     font-size: 4rem;
-    font-family: "Dancing Script", cursive;
-  }
-
+}
 
     #profile_home {
 
         padding: 10px;
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
 
 
 
@@ -63,17 +68,14 @@ h2 {
             aspect-ratio: 1;
             animation: rotateImage 5s linear infinite;
             position: absolute;
-            left: 555px;
-            top: 10px;
+            left: 671px;
+            
 
         }
 
         img {
             border-radius: 50%;
             width: 300px;
-            position: absolute;
-            left: 565px;
-            top: 20px;
             ;
 
         }

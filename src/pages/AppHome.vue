@@ -1,6 +1,6 @@
 <template>
     <div id="home">
-        <h2 class="text-center my-4">Full Stack Web Developer</h2>
+        <h1 class="text-center my-4">//Full Stack Web Developer</h1>
     </div>
 
 
