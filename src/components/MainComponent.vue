@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import LoaderComponent from '@/pages/LoaderComponent.vue';
+import LoaderComponent from '@/components/LoaderComponent.vue';
 import { store } from '../store.js';
 import axios from 'axios';
 export default {
