@@ -5,8 +5,6 @@
 
             <div class="card-body">
                 <h5 class="card-title">{{ item.title }}</h5>
-                <span v-for="(item, index) in item.technologies" class="badge rounded-pill text-bg-secondary mx-3">{{
-                    item?.name }}</span>
             </div>
         </router-link>
     </div>
@@ -41,6 +39,7 @@
     .card {
         border: 3px solid rgb(22, 22, 130);
         width: calc(100% / 2);
+        border-radius: 40px;
 
         &:hover {
             border: 3px double rgb(36, 43, 255);
@@ -53,14 +52,14 @@
 
     .card-body {
         padding: 10px 10px;
-        border-top: 1px solid black;
+        
         display: flex;
         justify-content: center;
         align-items: center;
         
 
         h5 {
-            color: rgb(66, 3, 67);
+            color: rgb(0, 0, 0);
             font-size: 5.5rem;
             font-weight: 500;
             font-family: "Caveat", cursive;
