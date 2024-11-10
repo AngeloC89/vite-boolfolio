@@ -32,13 +32,14 @@
     export default {
         data() {
             return {
+                store,
                 nam: ""
             }
         },
         methods: {
       getUser() {
         axios
-          .get(apiBaseUrl + "/user/1")
+          .get(this.store.apiBaseUrl + "/user/1")
           .then((response) => {
             this.nam = response.data.name;
             console.log("Nome dell'utente:", response.data.name);
