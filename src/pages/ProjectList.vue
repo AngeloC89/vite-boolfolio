@@ -123,7 +123,7 @@
 
 <style lang="scss" scoped>
   #pList {
-    padding: 20px;
+    padding: 10px;
 
     .counter_list {
       height: 30px;

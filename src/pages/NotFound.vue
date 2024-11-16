@@ -1,6 +1,7 @@
 <template>
-    <div class="d-flex justify-content-center align-items-center">
-<h1>404 PAGE NOT FOUND </h1>
+    <div>
+        <img  src="/public/images/404.png" alt="404">
+
     </div>
 </template>
 
@@ -11,13 +12,15 @@
 </script>
 
 <style lang="scss" scoped>
-
-
 div{
-    height: 80vh;
-    h1{
-        color: red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+   
+
+    img{
+        
     }
- 
 }
 </style>

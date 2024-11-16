@@ -1,22 +1,17 @@
 <template>
     <main>
-     <div v-if="!store.loader">
        <router-view></router-view>
-      </div>
-      <div v-else> 
-       <LoaderComponent v-if="store.loader" class="d-block mx-auto" />
-      </div>
     </main>
 </template>
 
 <script>
-import LoaderComponent from '@/components/LoaderComponent.vue';
+
 import { store } from '../store.js';
 import axios from 'axios';
 export default {
     name: 'MainComponent',  
     components: {
-      LoaderComponent,
+      
     },
 data() {
       return {
@@ -33,6 +28,7 @@ data() {
 main{
   width: 100%;
   height: 100vh;
+  
  
 }
 </style>

@@ -1,13 +1,5 @@
 <template>
-
-
-
-  <!-- <ul class="ms-auto">
-                <li class="mx-3 list-unstyled">
-                    <a href="http://127.0.0.1:8000/" class="nav-link">Area riservata</a>
-                </li>
-            </ul> -->
-  <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+  <button id="btnC" class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
     aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-arrow-right-to-bracket fs-1"></i></button>
 
   <div class="offcanvas offcanvas-start show" data-bs-dismiss="offcanvas" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
@@ -59,7 +51,9 @@
 </script>
 
 <style lang="scss" scoped>
-
+#btnC{
+    position: fixed;
+    top: 45%;}
 
   .offcanvas {
     width: 25%;
@@ -68,7 +62,7 @@
     border: none;
 
     ul {
-      margin-top: 100px;
+      margin-top: 200px;
 
 
       li {
