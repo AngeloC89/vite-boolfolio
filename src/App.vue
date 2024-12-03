@@ -22,30 +22,23 @@
     data() {
       return {
         store,
+     
+       
 
       }
     },
     methods: {
-      getTechnologies() {
-        
-        axios
-          .get(this.store.apiBaseUrl + "/technologies")
-          .then((res) => {
-          
-            this.store.technologies = res.data.results;
 
-            
-            //console.log(res.data);
-          });
-      },
+
+     
 
     },
     mounted() {
-      this.getTechnologies()
-   
-
+      this.store.methods.getAllProjects();
+      this.store.methods.getTechnologies();
 
     },
+    
 
   }
 </script>
