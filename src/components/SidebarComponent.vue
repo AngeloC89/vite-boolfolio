@@ -2,7 +2,7 @@
   <button id="btnC" class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
     aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-arrow-right-to-bracket fs-1"></i></button>
 
-  <div class="offcanvas offcanvas-start show" data-bs-dismiss="offcanvas" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+  <div class="offcanvas offcanvas-start" data-bs-dismiss="offcanvas" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
     aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header d-flex flex-column">
       <!-- <h5 class="offcanvas-title" id="offcanvasLabel">possibilmente un logo</h5> -->

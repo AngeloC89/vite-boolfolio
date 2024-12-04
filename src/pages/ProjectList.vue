@@ -13,7 +13,7 @@
       </div>
       <!-- select -->
       <div id="select">
-        <label class="text-white" for="technologies">Technologies</label>
+        <label class="text-black" for="technologies">Technologies</label>
         <br />
         <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams()"
           v-model="techno">

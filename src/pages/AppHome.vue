@@ -3,11 +3,11 @@
         <h1 id="neon" class="text-center my-4">//Full Stack Web Developer</h1>
         <div class="d-flex justify-content-between w-100">
             <div id="left"></div>
-            <div id="imgW"></div>
+            <div id="imgW" :style="{ backgroundImage: `url(${immg})` }" ></div>
             <div id="projectsList">
                 <ul v-for="(project, index) in store.projects" :key="project.id">
-                    <li class="text-center list-unstyled p-3">
-                        <router-link id="linkHome" class="text-decoration-none"
+                    <li class="text-center list-unstyled p-3" >
+                        <router-link @mouseleave="baseImg()" @mouseover="changeImg(project.images[0].path)" id="linkHome" class="text-decoration-none"
                             :to="{ name: 'project-details', params: { slug: project.slug } }">
                             {{ project.title }}
                         </router-link>
@@ -30,11 +30,19 @@
         data() {
             return {
                 store,
+                immg: '/public/images/devil.webp',
 
             };
         },
         methods: {
+            changeImg(project) {
+                this.immg = this.store.imgBaseUrl + project;
+                console.log(this.immg);
+            },
 
+            baseImg() {
+                this.immg = '/public/images/devil.webp';
+            },
         },
 
 
@@ -49,7 +57,7 @@
     }
 
     #imgW {
-        background-image: url('/public/images/devil.webp');
+        //background-image: url('/public/images/devil.webp');
         opacity: 0.6;
         background-position: center;
         background-repeat: no-repeat;
