@@ -1,9 +1,14 @@
 <template>
-  <button id="btnC" class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-    aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-arrow-right-to-bracket fs-1"></i></button>
+  <button id="btnC" class="btn d-none d-lg-block" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
+      class="fa-solid fa-arrow-right-to-bracket fs-1"></i></button>
 
-  <div class="offcanvas offcanvas-start" data-bs-dismiss="offcanvas" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-    aria-labelledby="offcanvasWithBothOptionsLabel">
+  <button id="btnMobile" class="btn d-lg-none" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
+      class="fa-solid fa-bars fs-1"></i></button>
+
+  <div class="offcanvas offcanvas-start" data-bs-dismiss="offcanvas" data-bs-scroll="true" tabindex="-1"
+    id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header d-flex flex-column">
       <!-- <h5 class="offcanvas-title" id="offcanvasLabel">possibilmente un logo</h5> -->
       <ul class="d-flex flex-column align-items-start">
@@ -47,13 +52,33 @@
       };
     },
 
+    methods: {
+      changeClass() {
+        const offcanvas = document.getElementById("offcanvasWithBothOptions");
+
+        if (window.innerWidth < 576) {
+          offcanvas.classList.add("offcanvas-top");
+        } else {
+          offcanvas.classList.add("offcanvas-start");
+        }
+      }
+    },
+
+    mounted() {
+      this.changeClass();
+    }
+
   };
 </script>
 
 <style lang="scss" scoped>
-#btnC{
+  #btnC {
     position: fixed;
-    top: 45%;}
+    top: 45%;
+    z-index: 1000;
+
+  }
+
 
   .offcanvas {
     width: 25%;
@@ -76,6 +101,26 @@
         }
       }
     }
+  }
+
+
+  @media screen and (max-width: 576px) {
+
+    #btnMobile {
+      position: fixed;
+      top: 20px;
+      right: 9px;
+      z-index: 1000;
+    }
+
+    .offcanvas {
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      //box-shadow: inset 400px 0px 108px -64px rgb(255, 255, 255);
+      border: none;
+    }
+
   }
 
 </style>

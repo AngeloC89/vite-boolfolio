@@ -148,4 +148,55 @@
             /* Fine a 360 gradi */
         }
     }
+
+
+    @media screen and (max-width: 576px) {
+        .container {
+            padding: 5px;
+            height: 100%;
+            overflow: scroll;
+
+            #profile_home {
+    
+                #circle_img {
+                    padding: 10px;
+                    width: 320px;
+                    border-radius: 50%;
+                    border-top: 5px solid rgb(28, 23, 110);
+                    border-bottom: 5px solid rgb(28, 23, 110);
+                    aspect-ratio: 1;
+                    animation: rotateImage 5s linear infinite;
+                    position: absolute;
+                    left: 27px;
+    
+    
+                }
+    
+                img {
+                    border-radius: 50%;
+                    width: 300px;
+                    ;
+    
+                }
+    
+    
+            }
+
+            #about_me {
+
+                p {
+                    height: 50%;
+                    font-size: 2rem;
+                    font-family: 'Courier New', Courier, monospace;
+                    margin: 30px 0px;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+
+    }
 </style>

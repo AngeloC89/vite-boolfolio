@@ -15,8 +15,7 @@
       <div id="select">
         <label class="text-black" for="technologies">Technologies</label>
         <br />
-        <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams()"
-          v-model="techno">
+        <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams()" v-model="techno">
           <option value="">All</option>
           <option :value="technology.id" v-for="technology in store.technologies" :key="technology.id">
             {{ technology?.name }}
@@ -24,12 +23,13 @@
         </select>
       </div>
     </div>
-  </div>
 
-  <div id="box-card" class="my-1 mx-0 p-0">
-    <div id="proj" class="my-3 d-flex justify-content-center" v-for="(project, index) in store.projects"
-      :key="project.id">
-      <CardComponent :item="project" :index="index" />
+
+    <div id="box-card" class="my-1 mx-0 p-0 w-100 ">
+      <div id="proj" class="my-3 d-flex justify-content-center" v-for="(project, index) in store.projects"
+        :key="project.id">
+        <CardComponent :item="project" :index="index" />
+      </div>
     </div>
   </div>
 </template>
@@ -52,13 +52,14 @@
 
     methods: {
       setParams() {
+        this.store.params = {};
         if (this.techno) {
           this.store.params.technologies = this.techno;
         }
         store.methods.getAllProjects();
       },
     },
-    
+
 
     computed: {
       selectedTechnology() {
@@ -93,38 +94,90 @@
       align-items: end;
       justify-content: space-between;
     }
+
+    #box-card {
+      overflow-y: scroll;
+      height: 740px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      #proj {
+        width: 50%;
+        transition: 1s;
+      }
+  
+      #proj:nth-child(odd) {
+        transform: translateX(15%) rotate(-2deg);
+  
+  
+        /* Sposta a sinistra e ruota leggermente */
+      }
+  
+      #proj:nth-child(even) {
+        transform: translateX(-15%) rotate(2deg);
+  
+        /* Sposta a destra e ruota leggermente */
+      }
+  
+      #proj:hover {
+        transform: scale(1.1) rotate(0deg);
+        transition: 1s;
+        /* Porta in primo piano la card */
+      }
+  
+    }
   }
 
-  #box-card {
-    overflow-y: scroll;
-    height: 740px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  
 
-    #proj {
-      width: 50%;
-      transition: 1s;
+
+  @media screen and (max-width: 576px) {
+    #pList {
+      height: 100%;
+      overflow-y: scroll;
+
+      h1 {
+        font-size: 3rem;
+        margin: 3px;
+      }
+
+
+      #box-card {
+        overflow-y: scroll;
+        height: 740px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        #proj {
+          width: 70%;
+          transition: 1s;
+        }
+    
+        #proj:nth-child(odd) {
+          transform: translateX(15%) rotate(-2deg);
+    
+    
+          /* Sposta a sinistra e ruota leggermente */
+        }
+    
+        #proj:nth-child(even) {
+          transform: translateX(-15%) rotate(2deg);
+    
+          /* Sposta a destra e ruota leggermente */
+        }
+    
+        #proj:hover {
+          transform: scale(1.1) rotate(0deg);
+          transition: 1s;
+          /* Porta in primo piano la card */
+        }
+    
+      }
+
     }
 
-    #proj:nth-child(odd) {
-      transform: translateX(15%) rotate(-2deg);
-
-
-      /* Sposta a sinistra e ruota leggermente */
-    }
-
-    #proj:nth-child(even) {
-      transform: translateX(-15%) rotate(2deg);
-
-      /* Sposta a destra e ruota leggermente */
-    }
-
-    #proj:hover {
-      transform: scale(1.1) rotate(0deg);
-      transition: 1s;
-      /* Porta in primo piano la card */
-    }
 
   }
 </style>

@@ -1,13 +1,15 @@
 <template>
     <div id="home" class="d-flex flex-column align-items-center">
-        <h1 id="neon" class="text-center my-4">//Full Stack Web Developer</h1>
-        <div class="d-flex justify-content-between w-100">
-            <div id="left"></div>
-            <div id="imgW" :style="{ backgroundImage: `url(${immg})` }" ></div>
-            <div id="projectsList">
-                <ul v-for="(project, index) in store.projects" :key="project.id">
-                    <li class="text-center list-unstyled p-3" >
-                        <router-link @mouseleave="baseImg()" @mouseover="changeImg(project.images[0].path)" id="linkHome" class="text-decoration-none"
+        <h1 id="neon" class="text-center my-4 fs-1">//Full Stack Web Developer</h1>
+        <div class="d-flex justify-content-center w-100">
+            <div id="left" class="d-none d-lg-block"></div>
+            <div id="imgW" class="d-none d-lg-block" :style="{ backgroundImage: `url(${immg})` }"></div>
+            <div id="projectsList" class="w-lg-25">
+                <ul class="p-0">
+                    <li v-for="(project, index) in store.projects" :key="project.id"
+                        class="text-center list-unstyled p-0 p-lg-3 ">
+                        <router-link @mouseleave="baseImg()" @mouseover="changeImg(project.images[0].path)"
+                            id="linkHome" class="text-decoration-none"
                             :to="{ name: 'project-details', params: { slug: project.slug } }">
                             {{ project.title }}
                         </router-link>
@@ -70,13 +72,14 @@
     }
 
     #projectsList {
-        width: 25%;
+        //width: 25%;
         height: 700px;
         overflow-y: scroll;
         font-family: "Caveat", cursive;
         font-size: 5rem;
 
         li {
+           
             transform: rotate(-12deg);
         }
 
@@ -93,6 +96,33 @@
             }
 
         }
+    }
+
+    @media screen and (max-width: 576px) {
+
+        #projectsList {
+            font-size: 4rem;
+
+            li {
+
+                transform: rotate(-12deg);
+            }
+
+
+
+            #linkHome {
+                color: black;
+                cursor: pointer;
+
+
+                &:hover {
+                    color: rgb(36, 43, 2555);
+
+                }
+
+            }
+        }
+
     }
 
 

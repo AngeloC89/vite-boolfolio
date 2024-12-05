@@ -6,6 +6,7 @@ export const store = reactive({
   //apiBaseUrl: "http://127.0.0.1:8000/api",
   imgBaseUrl: "https://portfolio-angelo.s3.eu-west-3.amazonaws.com/",
   projects: [],
+  
   technologies: [],
   loader: false,
   params: {},// parametri di ricerca... va inizializzata come oggetto!

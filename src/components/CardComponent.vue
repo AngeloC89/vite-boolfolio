@@ -76,4 +76,34 @@
     }
 
 
+    @media screen and (max-width: 576px) {
+        
+        .card-body {
+            padding: 10px 10px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+    
+            h5 {
+                color: rgb(0, 0, 0);
+                font-size: 3rem;
+                font-weight: 400;
+                font-family: "Caveat", cursive;
+    
+            }
+    
+            .badge {
+                font-size: 1.5rem;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                height: fit-content;
+            }
+        }
+
+    }
+
+
 </style>
