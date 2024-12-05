@@ -1,10 +1,21 @@
 <template>
     <div id="home" class="d-flex flex-column align-items-center">
-        <h1 id="neon" class="text-center my-4 fs-1">//Full Stack Web Developer</h1>
+        <h1 id="neon" class="text-center my-4">//Full Stack Web Developer</h1>
         <div class="d-flex justify-content-center w-100">
-            <div id="left" class="d-none d-lg-block"></div>
+            <div id="left">
+                <ul class="d-flex flex-column align-items-center">
+                    <li class="list-unstyled p-0 p-lg-3 brand">
+                        <a href="https://www.linkedin.com/in/angelociulla89">
+                            <i class="fa-brands fa-linkedin"></i></a></li>
+                    <li class="list-unstyled p-0 p-lg-3 brand">
+                        <a href="https://www.instagram.com/let_dev_il.dev/profilecard/?igsh=MXZqdnB6d3YweW50MA==">
+                            <i class="fa-brands fa-instagram"></i></a></li>
+                    <li class="list-unstyled p-0 p-lg-3 brand">
+                        <a href="https://github.com/AngeloC89"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
             <div id="imgW" class="d-none d-lg-block" :style="{ backgroundImage: `url(${immg})` }"></div>
-            <div id="projectsList" class="w-lg-25">
+            <div id="projectsList" class="w-lg-25 d-none d-lg-block">
                 <ul class="p-0">
                     <li v-for="(project, index) in store.projects" :key="project.id"
                         class="text-center list-unstyled p-0 p-lg-3 ">
@@ -56,6 +67,14 @@
 
     #left {
         width: 25%;
+
+        .brand {
+            font-size: 4rem;
+
+            a{
+                color : black;
+            }
+        }
     }
 
     #imgW {
@@ -72,14 +91,14 @@
     }
 
     #projectsList {
-        //width: 25%;
+        width: 25%;
         height: 700px;
         overflow-y: scroll;
         font-family: "Caveat", cursive;
         font-size: 5rem;
 
         li {
-           
+
             transform: rotate(-12deg);
         }
 
@@ -99,8 +118,12 @@
     }
 
     @media screen and (max-width: 576px) {
+        #neon {
+            font-size: 1.7rem;
+        }
 
         #projectsList {
+            width: 100%;
             font-size: 4rem;
 
             li {
