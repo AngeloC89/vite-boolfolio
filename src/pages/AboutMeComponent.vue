@@ -4,10 +4,12 @@
             <h1>//{{ this.nam }}</h1>
         </div>
         <div id="profile_home">
-            <div id="circle_img"></div>
-            <div>
-                <img src="/images/Angelo.png" alt="Angelo">
+
+            <div id="imgContainer">
+                <img class="img-fluid" src="/images/Angelo.png" alt="Angelo">
+                <div id="circle_img"></div>
             </div>
+
         </div>
 
         <div id="about_me">
@@ -97,28 +99,36 @@
 
 
 
-            #circle_img {
-                padding: 10px;
+
+
+            #imgContainer {
+                display: flex;
                 width: 320px;
-                border-radius: 50%;
-                border-top: 5px solid rgb(28, 23, 110);
-                border-bottom: 5px solid rgb(28, 23, 110);
-                aspect-ratio: 1;
-                animation: rotateImage 5s linear infinite;
-                position: absolute;
-                left: 488px;
+                height: 320px;
+                position: relative;
+
+                img {
+                    width: 320px;
+                    position: absolute;
+                    left: 0px;                   
+                    border-radius: 50%;
+                    
+                }
 
 
+                #circle_img {
+                    width: 320px;
+                    aspect-ratio: 1;
+                    /* Deve essere uguale a width per creare un cerchio */
+                    border-radius: 50%;
+                    border-top: 5px solid rgb(28, 23, 110);
+                    border-bottom: 5px solid rgb(28, 23, 110);
+                    animation: rotateImage 5s linear infinite;
+                    position: absolute;
+                    left: 0px;
+                   
+                }
             }
-
-            img {
-                border-radius: 50%;
-                width: 300px;
-                ;
-
-            }
-
-
         }
 
         #about_me {
@@ -157,7 +167,7 @@
             overflow: scroll;
 
             #profile_home {
-    
+
                 #circle_img {
                     padding: 10px;
                     width: 320px;
@@ -168,18 +178,18 @@
                     animation: rotateImage 5s linear infinite;
                     position: absolute;
                     left: 32px;
-    
-    
+
+
                 }
-    
+
                 img {
                     border-radius: 50%;
                     width: 300px;
                     ;
-    
+
                 }
-    
-    
+
+
             }
 
             #about_me {
