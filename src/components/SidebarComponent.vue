@@ -57,7 +57,7 @@
         const offcanvas = document.getElementById("offcanvasWithBothOptions");
 
         if (window.innerWidth < 576) {
-          offcanvas.classList.add("offcanvas-top");
+          offcanvas.classList.add("offcanvas-bottom");
         } else {
           offcanvas.classList.add("offcanvas-start");
         }
@@ -108,9 +108,10 @@
 
     #btnMobile {
       position: fixed;
-      top: 20px;
+      bottom: 20px;
       right: 8px;
       z-index: 1000;
+
     }
 
     .offcanvas {
@@ -119,6 +120,23 @@
       background-color: transparent;
       //box-shadow: inset 400px 0px 108px -64px rgb(255, 255, 255);
       border: none;
+
+      ul {
+        margin-top: 150px;
+        margin-left: 20px;
+
+
+        li {
+          color: rgb(22, 22, 130);
+          font-size: 5rem;
+          font-weight: 500;
+          font-family: "Caveat", cursive;
+
+          a {
+            width: 400px;
+          }
+        }
+      }
     }
 
   }
