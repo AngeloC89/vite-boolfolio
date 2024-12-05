@@ -3,7 +3,7 @@
         <h1 id="neon" class="text-center my-4">//Full Stack Web Developer</h1>
         <div class="d-flex justify-content-center w-100">
             <div id="left">
-                <ul class="d-flex flex-column align-items-center">
+                <ul class="d-flex flex-column align-items-center p-0">
                     <li class="list-unstyled p-0 p-lg-3 brand">
                         <a href="https://www.linkedin.com/in/angelociulla89">
                             <i class="fa-brands fa-linkedin"></i></a></li>
@@ -43,7 +43,7 @@
         data() {
             return {
                 store,
-                immg: '/public/images/devil.webp',
+                immg: store.imgBaseUrl + 'images/devil+dev.webp',
 
             };
         },
@@ -119,7 +119,7 @@
 
     @media screen and (max-width: 576px) {
         #neon {
-            font-size: 1.7rem;
+            font-size: 1.75rem;
         }
 
         #projectsList {

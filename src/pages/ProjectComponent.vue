@@ -99,5 +99,22 @@
 
   }
 
+  @media screen and (max-width: 576px) {
+
+    .container{
+      height: 100%;
+      overflow-y: scroll;
+      padding-top:45px;
+
+
+      #img_demo {
+        height: 200px;
+      }
+      
+
+    }
+  
+  }
+
 
 </style>

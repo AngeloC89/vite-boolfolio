@@ -167,7 +167,7 @@
                     aspect-ratio: 1;
                     animation: rotateImage 5s linear infinite;
                     position: absolute;
-                    left: 27px;
+                    left: 32px;
     
     
                 }
@@ -186,9 +186,9 @@
 
                 p {
                     height: 50%;
-                    font-size: 2rem;
                     font-family: 'Courier New', Courier, monospace;
-                    margin: 30px 0px;
+                    margin: 20px 0px;
+                    font-size: 1.6rem;
 
                     &::-webkit-scrollbar {
                         display: none;

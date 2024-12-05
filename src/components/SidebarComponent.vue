@@ -109,7 +109,7 @@
     #btnMobile {
       position: fixed;
       top: 20px;
-      right: 9px;
+      right: 8px;
       z-index: 1000;
     }
 
