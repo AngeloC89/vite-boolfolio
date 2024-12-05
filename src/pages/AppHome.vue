@@ -54,7 +54,7 @@
             },
 
             baseImg() {
-                this.immg = '/public/images/devil.webp';
+                this.immg = store.imgBaseUrl + 'images/devil+dev.webp';
             },
         },
 
