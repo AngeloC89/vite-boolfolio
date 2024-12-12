@@ -3,7 +3,7 @@ import AppHome from "./pages/AppHome.vue";
 import ProjectList from "./pages/ProjectList.vue";
 import ProjectComponent from "./pages/ProjectComponent.vue";
 import NotFound from "./pages/NotFound.vue";
-import ContactComponet from "./pages/ContactComponet.vue";
+import ContactPage from "./pages/ContactPage.vue";
 import AboutMeComponent from "./pages/AboutMeComponent.vue";
 
 const router = createRouter({
@@ -32,7 +32,7 @@ const router = createRouter({
     {
       path: "/contact",
       name: "contact",
-      component: ContactComponet,
+      component: ContactPage,
     },
     {
       path: "/about-me",

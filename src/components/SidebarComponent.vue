@@ -40,12 +40,10 @@
             name: "about-me",
             label: "#About Me"
           },
-
-
           // {
-          //     name: 'contact',
-          //     label: 'Contact'
-          // }
+          //   name: 'contact',
+          //   label: '#Contact Me'
+          // },
         ],
 
         nam: "",
@@ -92,7 +90,7 @@
 
       li {
         color: rgb(22, 22, 130);
-        font-size: 6rem;
+        font-size: 5rem;
         font-weight: 500;
         font-family: "Caveat", cursive;
 
@@ -128,7 +126,7 @@
 
         li {
           color: rgb(22, 22, 130);
-          font-size: 5rem;
+          font-size: 4rem;
           font-weight: 500;
           font-family: "Caveat", cursive;
 

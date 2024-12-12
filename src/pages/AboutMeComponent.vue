@@ -85,7 +85,7 @@
 
 
         h1 {
-            font-size: 4rem;
+            font-size: 6rem;
         }
 
         #profile_home {

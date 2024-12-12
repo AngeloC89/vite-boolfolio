@@ -64,6 +64,9 @@
 
 
 <style lang="scss" scoped>
+    #neon{
+        font-size: 6rem;
+    }
 
     #left {
         width: 25%;
@@ -97,6 +100,10 @@
         font-family: "Caveat", cursive;
         font-size: 5rem;
 
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
         li {
 
             transform: rotate(-12deg);
@@ -119,7 +126,7 @@
 
     @media screen and (max-width: 576px) {
         #neon {
-            font-size: 1.75rem;
+            font-size: 2rem;
         }
 
         #projectsList {

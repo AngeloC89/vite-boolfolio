@@ -81,6 +81,10 @@
   #pList {
     padding: 10px;
 
+    h1{
+      font-size: 6rem;
+    }
+
     .counter_list {
       height: 30px;
       color: rgb(22, 22, 130);
@@ -138,7 +142,7 @@
       overflow-y: scroll;
 
       h1 {
-        font-size: 3rem;
+        font-size: 4rem;
         margin: 3px;
       }
 
