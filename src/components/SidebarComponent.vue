@@ -40,10 +40,10 @@
             name: "about-me",
             label: "#About Me"
           },
-          // {
-          //   name: 'contact',
-          //   label: '#Contact Me'
-          // },
+          {
+            name: 'contact',
+            label: '#Contact Me'
+          },
         ],
 
         nam: "",

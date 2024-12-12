@@ -15,7 +15,7 @@
                 </ul>
             </div>
             <div id="imgW" class="d-none d-lg-block" :style="{ backgroundImage: `url(${immg})` }"></div>
-            <div id="projectsList" class="w-lg-25 d-none d-lg-block">
+            <div id="projectsList" class="d-none d-lg-block">
                 <ul class="p-0">
                     <li v-for="(project, index) in store.projects" :key="project.id"
                         class="text-center list-unstyled p-0 p-lg-3 ">
@@ -97,19 +97,20 @@
         width: 25%;
         height: 700px;
         overflow-y: scroll;
+        overflow-x: hidden;
         font-family: "Caveat", cursive;
         font-size: 5rem;
 
         &::-webkit-scrollbar {
             display: none;
         }
+        ul{
+           
 
-        li {
-
-            transform: rotate(-12deg);
+            li {
+                transform: rotate(-12deg);
+            }
         }
-
-
 
         #linkHome {
             color: black;
