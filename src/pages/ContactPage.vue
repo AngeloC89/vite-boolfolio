@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <h1 class="text-center">Contact Me</h1>
+  <!-- <div class="container">
+    <h1 class="text-center">//Contact Me</h1>
 
     <div class="row d-flex justify-content-center">
       <form @submit.prevent="Sending()" class="w-50">
@@ -18,17 +18,23 @@
           <textarea class=" mb-3" v-model="formData.message" name="message" cols="30" rows="10" placeholder="Message"
             required></textarea>
         </div>
-        <div class=" d-flex flex-column justify-content-center">
-          <label for="file">Carica un'allegato</label>
-          <input class="mb-3" type="file" name="file" id="file" accept=".jpg, .jpeg, .doc, .docx, .pdf," multiple
-            @change="filesEvent()">
-        </div>
+      
         <div>
           <button type="submit" class="btn btn-secondary">Send</button>
         </div>
       </form>
     </div>
+  </div> -->
+
+  <div class="d-flex flex-column justify-content-center align-items-center h-100">
+    <h2>work in progress...</h2>
+    <div id="progress">
+      <div id="bar">
+
+      </div>
+    </div>
   </div>
+  
 </template>
 
 <script>
@@ -44,30 +50,17 @@
           name: '',
           email: '',
           message: '',
-          file: [],
         },
       }
     },
     methods: {
-      filesEvent(e) {
-        this.formData.file = e.target.files
-
-      },
       Sending() {
         const formData = new FormData();
         formData.append('name', this.formData.name);
         formData.append('email', this.formData.email);
         formData.append('message', this.formData.message);
-        formData.append('file', this.formData.file);
 
-        console.log(formData);
-
-
-        axios.post(`${this.store.apiBaseUrl}/contact`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data', // Importante per gestire file upload
-          }
-        }).then((res) => {
+        axios.post(`${this.store.apiBaseUrl}/contact`, formData).then((res) => {
           console.log(res.data);
           alert('Il tuo messaggio è stato inviato con successo!');
           this.resetForm(); // Resetta il form dopo l'invio
@@ -99,6 +92,34 @@
       background-color: white;
       border: 1px solid black;
     }
+  }
+
+  #progress{
+    width: 60%;
+    height: 3%;
+    border: 2px solid black;
+    border-radius: 30px;
+    overflow: hidden;
+
+    #bar{
+      height: 100%;
+      width: 0%;
+      background-color: rgb(229, 5, 5);
+      animation : loading 10s infinite;
+
+      @keyframes loading {
+        0%{
+          width: 0%;
+          background-color: rgb(229, 5, 5);
+        }
+        100%{
+          width: 60%;
+          background-color: rgb(254, 233, 3);
+        }
+        
+      }
+    }
+
   }
 
   @media screen and (max-width: 768px) {
