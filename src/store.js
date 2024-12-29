@@ -2,8 +2,8 @@ import { reactive } from "vue";
 import axios from "axios";
 
 export const store = reactive({
-  apiBaseUrl: "https://web-production-158d5.up.railway.app/api",
-  //apiBaseUrl: "http://127.0.0.1:8000/api",
+  //apiBaseUrl: "https://web-production-158d5.up.railway.app/api",
+  apiBaseUrl: "http://127.0.0.1:8000/api",
   imgBaseUrl: "https://portfolio-angelo.s3.eu-west-3.amazonaws.com/",
   projects: [],
   technologies: [],

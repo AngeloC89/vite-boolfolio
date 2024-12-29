@@ -23,17 +23,12 @@
           <button type="submit" class="btn btn-secondary">Send</button>
         </div>
       </form>
+      <div class="d-flex justify-content-center h-25">
+        <h2 class="text-center w-100 px-3">{{send}}</h2>
+      </div>
     </div>
   </div> 
 
-  <!-- <div class="d-flex flex-column justify-content-center align-items-center h-100">
-    <h2>work in progress...</h2>
-    <div id="progress">
-      <div id="bar">
-
-      </div>
-    </div>
-  </div> -->
   
 </template>
 
@@ -46,6 +41,7 @@
     data() {
       return {
         store,
+        send:'',
         formData: {
           name: '',
           email: '',
@@ -60,9 +56,9 @@
         formData.append('email', this.formData.email);
         formData.append('message', this.formData.message);
 
-        axios.post(`${this.store.apiBaseUrl}/leads`, formData).then((res) => {
+        axios.post(`${this.store.apiBaseUrl}/contact`, formData).then((res) => {
           console.log(res.data);
-          alert('Il tuo messaggio è stato inviato con successo!');
+          this.send = ('Il tuo messaggio è stato inviato con successo!');
           this.resetForm(); // Resetta il form dopo l'invio
         }).catch((error) => {
           //console.log(error);
@@ -87,38 +83,6 @@
 
     height: 100%;
     overflow-y: scroll;
-
-    #file {
-      background-color: white;
-      border: 1px solid black;
-    }
-  }
-
-  #progress{
-    width: 60%;
-    height: 3%;
-    border: 2px solid black;
-    border-radius: 30px;
-    overflow: hidden;
-
-    #bar{
-      height: 100%;
-      width: 0%;
-      background-color: rgb(229, 5, 5);
-      animation : loading 10s infinite;
-
-      @keyframes loading {
-        0%{
-          width: 0%;
-          background-color: rgb(229, 5, 5);
-        }
-        100%{
-          width: 60%;
-          background-color: rgb(254, 233, 3);
-        }
-        
-      }
-    }
 
   }
 
