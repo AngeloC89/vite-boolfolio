@@ -1,5 +1,5 @@
 <template>
-  <!-- <div class="container">
+  <div class="container">
     <h1 class="text-center">//Contact Me</h1>
 
     <div class="row d-flex justify-content-center">
@@ -24,16 +24,16 @@
         </div>
       </form>
     </div>
-  </div> -->
+  </div> 
 
-  <div class="d-flex flex-column justify-content-center align-items-center h-100">
+  <!-- <div class="d-flex flex-column justify-content-center align-items-center h-100">
     <h2>work in progress...</h2>
     <div id="progress">
       <div id="bar">
 
       </div>
     </div>
-  </div>
+  </div> -->
   
 </template>
 
@@ -60,7 +60,7 @@
         formData.append('email', this.formData.email);
         formData.append('message', this.formData.message);
 
-        axios.post(`${this.store.apiBaseUrl}/contact`, formData).then((res) => {
+        axios.post(`${this.store.apiBaseUrl}/leads`, formData).then((res) => {
           console.log(res.data);
           alert('Il tuo messaggio è stato inviato con successo!');
           this.resetForm(); // Resetta il form dopo l'invio
