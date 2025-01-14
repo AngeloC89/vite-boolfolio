@@ -2,7 +2,7 @@ import { reactive } from "vue";
 import axios from "axios";
 
 export const store = reactive({
-  apiBaseUrl: "laravel-api-production-df5c.up.railway.app/api",
+  apiBaseUrl: "https://laravel-api-production-df5c.up.railway.app/api",
   //apiBaseUrl: "http://127.0.0.1:8000/api",
   //imgBaseUrl: "https://",
   projects: [],
