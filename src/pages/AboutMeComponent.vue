@@ -30,19 +30,14 @@
                 Il mio portfolio è attualmente in fase di sviluppo, e ho intenzione di migliorarlo continuamente,
                 aggiungendo funzionalità, ottimizzando l'interfaccia e sperimentando nuovi approcci di design per
                 renderlo sempre più completo e accattivante. Ogni progetto su cui lavoro rappresenta per me
-                un'opportunità di apprendere qualcosa di nuovo e di sfidare i miei limiti tecnici. Nel corso della mia
-                formazione, ho avuto modo di mettere in pratica le competenze acquisite in oltre 70 progetti,
-                affrontando sfide che mi hanno permesso di migliorare sia come sviluppatore che come problem solver.
+                un'opportunità di apprendere qualcosa di nuovo e di sfidare i miei limiti tecnici. 
                 <br> <br>
                 Il mio obiettivo è entrare nel mondo dello sviluppo di applicazioni aziendali e gestionali, dove credo
                 di poter dare un contributo significativo grazie alla mia formazione, alla mia determinazione e alla mia
-                propensione per l'apprendimento continuo. Sono convinto che il mix tra competenze front-end e back-end,
-                unite alla mia curiosità per la tecnologia, mi renda un candidato versatile e pronto a collaborare con
-                un team per realizzare progetti innovativi ed efficaci.
+                propensione per l'apprendimento continuo. 
+                
                 <br> <br>
-                Se siete alla ricerca di un Junior Developer motivato e desideroso di crescere in un ambiente dinamico,
-                sarò felice di condividere con voi il mio percorso e di mettere a frutto le mie capacità per contribuire
-                al successo dei vostri progetti.
+                Grazie per la visita!
             </p>
 
         </div>
@@ -136,8 +131,8 @@
             p {
                 height: 450px;
                 overflow-y: scroll;
-                font-size: 2rem;
-                font-family: 'Courier New', Courier, monospace;
+                font-size: 4rem;
+                font-family: "Londrina Shadow", sans-serif;
                 margin: 30px 0px;
 
                 &::-webkit-scrollbar {
