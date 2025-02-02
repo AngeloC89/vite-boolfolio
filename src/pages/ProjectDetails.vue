@@ -1,7 +1,7 @@
 <template>
 
-  <div class="container">
-    <button id="back" class="btn " @click="$router.go(-1)"><i class="fa-solid fa-arrow-left"></i></button>
+  <div class="container" id="details">
+    <button id="back" class="btn " @click="goBack"><i class="fa-solid fa-arrow-left"></i></button>
     <!-- the name of the project, is a link to view the demo -->
     <h1 class="text-center display-1">{{ project?.title }}</h1>
     <div v-if="images && images.length > 0">
@@ -38,7 +38,7 @@
   import axios from 'axios';
 
   export default {
-    name: 'ProjectComponent',
+    name: 'ProjectDetails',
     props: ['item'],
     data() {
       return {
@@ -71,6 +71,14 @@
         }
       },
 
+      goBack() {
+        if (this.$router.options.history.state.back) {
+          this.$router.go(-1);
+        } else {
+          this.$router.push('/');
+        };
+      },
+
     },
 
 
@@ -94,45 +102,57 @@
 
 
 <style lang="scss" scoped>
+  .container {
+    height: 100vh;
+    overflow-y: scroll;
+    padding-top: 45px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 
-  #back {
-    position: absolute;
-    top: 3%;
-    font-size: 3rem;
+
+    #back {
+      position: absolute;
+      top: 3%;
+      font-size: 3rem;
 
 
 
-  }
-
-  .btn {
-    border: 2px solid rgb(23, 108, 6);
-
-    &:hover {
-      color: rgb(23, 108, 6);
-    }
-  }
-
-  #img_demo {
-    height: 500px;
-  }
-
-  a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-
-    &:hover {
-      color: rgb(23, 108, 6);
-    }
-  }
-
-  #description {
-
-    padding: 20px;
-
-    p {
-      font-family: 'Courier New', Courier, monospace;
     }
 
+    .btn {
+      border: 2px solid rgb(23, 108, 6);
+
+      &:hover {
+        color: rgb(23, 108, 6);
+      }
+    }
+
+    #img_demo {
+      height: 500px;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+
+      &:hover {
+        color: rgb(23, 108, 6);
+      }
+    }
+
+    #description {
+
+      padding: 20px;
+
+      p {
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+    }
   }
 
   @media screen and (max-width: 576px) {

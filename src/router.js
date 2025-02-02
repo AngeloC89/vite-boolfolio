@@ -1,10 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
+
+// Importa le pagine
 import AppHome from "./pages/AppHome.vue";
-import ProjectList from "./pages/ProjectList.vue";
-import ProjectComponent from "./pages/ProjectComponent.vue";
+import ProjectDetails from "./pages/ProjectDetails.vue";
 import NotFound from "./pages/NotFound.vue";
-import ContactPage from "./pages/ContactPage.vue";
-import AboutMeComponent from "./pages/AboutMeComponent.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,33 +11,18 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: AppHome, 
-    },
-    {
-      path: "/projects",
-      name: "projects",
-      component: ProjectList, 
+      component: AppHome,
     },
     {
       path: "/projects/:slug",
       name: "project-details",
-      component: ProjectComponent , 
+      component: ProjectDetails,
     },
     {
       path: "/:pathMatch(.*)*",
       name: "not-found",
-      component: NotFound, 
+      component: NotFound,
     },
-    {
-      path: "/contact",
-      name: "contact",
-      component: ContactPage,
-    },
-    {
-      path: "/about-me",
-      name: "about-me",
-      component: AboutMeComponent,
-    }
   ],
 });
 

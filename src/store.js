@@ -10,6 +10,15 @@ export const store = reactive({
   loader: false,
   params: {},// parametri di ricerca... va inizializzata come oggetto!
   techno: "",
+  tecnoList: [
+    "html.png",
+    "css.webp",
+    "javascript.webp",
+    "php.webp",
+    "vue.png",
+    "laravel.webp",
+  
+  ],
 
   methods: {
     

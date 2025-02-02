@@ -32,18 +32,7 @@
             name: "home",
             label: "#Home",
           },
-          {
-            name: "projects",
-            label: "#Projects",
-          },
-          {
-            name: "about-me",
-            label: "#About Me"
-          },
-          {
-            name: 'contact',
-            label: '#Contact Me'
-          },
+         
         ],
 
         nam: "",

@@ -1,35 +1,36 @@
 <template>
-  <div class="container">
-    <h1 class="text-center">//Contact Me</h1>
+  <div id="formContact" class="p-3">
+    <h1 class="text-end">//Contact Me</h1>
 
     <div class="row d-flex justify-content-center">
-      <form @submit.prevent="Sending()" class="w-50">
+      <form @submit.prevent="Sending()" class="w-50 ">
         <div class=" d-flex flex-column justify-content-center w-100">
-          <label for="name">Inserisci il tuo nome</label>
-          <input class=" mb-3" v-model="formData.name" type="text" name="name" id="name" placeholder="Name" required>
+          <label class="form-label" for="name">Inserisci il tuo nome</label>
+          <input class="form-control mb-3" v-model="formData.name" type="text" name="name" id="name" placeholder="Name"
+            required>
         </div>
         <div class=" d-flex flex-column justify-content-center">
-          <label for="email">Inserisci la tua email</label>
-          <input class="mb-3" v-model="formData.email" type="email" name="email" id="email"
+          <label class="form-label" for="email">Inserisci la tua email</label>
+          <input class="form-control mb-3" v-model="formData.email" type="email" name="email" id="email"
             placeholder="example@domain.com" required>
         </div>
         <div class=" d-flex flex-column justify-content-center">
-          <label for="message">Messaggio</label>
-          <textarea class=" mb-3" v-model="formData.message" name="message" cols="30" rows="10" placeholder="Message"
-            required></textarea>
+          <label class="form-label" for="message">Messaggio</label>
+          <textarea class="form-control mb-3" v-model="formData.message" name="message" cols="30" rows="10"
+            placeholder="Message" required></textarea>
         </div>
-      
+
         <div>
           <button type="submit" class="btn btn-secondary">Send</button>
         </div>
       </form>
       <div class="d-flex justify-content-center h-25">
-        <h2 class="text-center w-100 px-3">{{send}}</h2>
+        <h2 class="text-center w-100 px-3">{{ send }}</h2>
       </div>
     </div>
-  </div> 
+  </div>
 
-  
+
 </template>
 
 <script>
@@ -37,11 +38,11 @@
   import axios from 'axios';
 
   export default {
-    name: 'ContactComponent',
+    name: 'ContactMeComponent',
     data() {
       return {
         store,
-        send:'',
+        send: '',
         formData: {
           name: '',
           email: '',
@@ -76,29 +77,36 @@
 
 
 <style lang="scss" scoped>
-  .container {
+
+  #formContact {
+    height: 100vh;
+
     h1 {
       font-size: 6rem;
     }
 
-    height: 100%;
-    overflow-y: scroll;
+    button {
+      background-color: rgba(230, 69, 0, 0.836);
+    }
 
   }
 
   @media screen and (max-width: 768px) {
+    #formContact {
+      h1 {
+        font-size: 3rem;
+      }
 
-    h1 {
-      font-size: 4rem;
-    }
-
-    form {
-      width: 100% !important;
-
-      button {
+      form {
         width: 100% !important;
+
+        button {
+          width: 100% !important;
+        }
       }
     }
+
+
 
   }
 

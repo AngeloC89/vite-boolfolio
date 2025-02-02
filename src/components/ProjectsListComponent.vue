@@ -1,10 +1,10 @@
 <template>
-  <div id="pList">
+  <div id="pList" class="p-3">
     <div>
-      <h1 class=" text-center">//Projects</h1>
+      <h1 class=" text-end">//Projects</h1>
     </div>
 
-    <div id="counter_technologies">
+    <div id="counter_technologies" class="mb-5">
       <!-- counter -->
       <div class="counter_list">
         <div v-if="techno">
@@ -25,9 +25,8 @@
     </div>
 
 
-    <div id="box-card" class="my-1 mx-0 p-0 w-100 ">
-      <div id="proj" class="my-3 d-flex justify-content-center" v-for="(project, index) in store.projects"
-        :key="project.id">
+    <div class="row ">
+      <div class="col-12 col-lg-3" v-for="(project, index) in store.projects" :key="project.id">
         <CardComponent :item="project" :index="index" />
       </div>
     </div>
@@ -39,7 +38,7 @@
   import { store } from "../store.js";
   import axios from "axios";
   export default {
-    name: "ProjectList",
+    name: "ProjectsListComponent",
     components: {
       CardComponent,
     },
@@ -81,13 +80,24 @@
   #pList {
     padding: 10px;
 
-    h1{
+    h1 {
       font-size: 6rem;
     }
 
     .counter_list {
       height: 30px;
-      color: rgb(22, 22, 130);
+      color: rgb(255, 168, 76);
+
+      h4 {
+        font-size: 2rem;
+      }
+    }
+
+    select {
+      border: 3px solidrgb(255, 168, 76);
+      border-radius: 20px;
+      padding: 5px;
+      appearance: none;
     }
 
     #counter_technologies {
@@ -99,42 +109,15 @@
       justify-content: space-between;
     }
 
-    #box-card {
-      overflow-y: scroll;
-      height: 740px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  
-      #proj {
-        width: 50%;
-        transition: 1s;
-      }
-  
-      #proj:nth-child(odd) {
-        transform: translateX(15%) rotate(-2deg);
-  
-  
-        /* Sposta a sinistra e ruota leggermente */
-      }
-  
-      #proj:nth-child(even) {
-        transform: translateX(-15%) rotate(2deg);
-  
-        /* Sposta a destra e ruota leggermente */
-      }
-  
-      #proj:hover {
-        transform: scale(1.1) rotate(0deg);
-        transition: 1s;
-        /* Porta in primo piano la card */
-      }
-  
+    .card {
+      background: rgba(167, 167, 167, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(128, 128, 128, 0.185);
     }
   }
-
-  
-
 
   @media screen and (max-width: 576px) {
     #pList {
@@ -142,46 +125,20 @@
       overflow-y: scroll;
 
       h1 {
-        font-size: 4rem;
+        font-size: 3rem;
         margin: 3px;
       }
 
+      #counter_technologies {
 
-      #box-card {
-        overflow-y: scroll;
-        height: 740px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    
-        #proj {
-          width: 70%;
-          transition: 1s;
+        select {
+          width: 150px;
         }
-    
-        #proj:nth-child(odd) {
-          transform: translateX(15%) rotate(-2deg);
-    
-    
-          /* Sposta a sinistra e ruota leggermente */
-        }
-    
-        #proj:nth-child(even) {
-          transform: translateX(-15%) rotate(2deg);
-    
-          /* Sposta a destra e ruota leggermente */
-        }
-    
-        #proj:hover {
-          transform: scale(1.1) rotate(0deg);
-          transition: 1s;
-          /* Porta in primo piano la card */
-        }
-    
       }
 
+      .row div{
+        margin: 10px 0px;
+      }
     }
-
-
   }
 </style>
