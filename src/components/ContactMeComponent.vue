@@ -57,7 +57,7 @@
         formData.append('email', this.formData.email);
         formData.append('message', this.formData.message);
 
-        axios.post(`${this.store.apiBaseUrl}/contact`, formData).then((res) => {
+        axios.post(`${this.store.apiBaseUrl}/send-email`, formData).then((res) => {
           console.log(res.data);
           this.send = ('Il tuo messaggio è stato inviato con successo!');
           this.resetForm(); // Resetta il form dopo l'invio
