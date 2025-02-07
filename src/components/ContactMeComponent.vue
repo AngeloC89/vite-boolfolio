@@ -1,9 +1,9 @@
 <template>
-  <div id="formContact" class="p-3">
+  <div id="formContact" class="p-3 ">
     <h1 class="text-end">//Contact Me</h1>
 
-    <div class="row d-flex justify-content-center">
-      <form @submit.prevent="Sending()" class="w-50 ">
+    <div class="d-flex flex-column justify-content-center glass py-5">
+      <form @submit.prevent="Sending()" class="w-50">
         <div class=" d-flex flex-column justify-content-center w-100">
           <label class="form-label" for="name">Inserisci il tuo nome</label>
           <input class="form-control mb-3" v-model="formData.name" type="text" name="name" id="name" placeholder="Name"
@@ -24,7 +24,7 @@
           <button type="submit" class="btn btn-secondary">Send</button>
         </div>
       </form>
-      <div class="d-flex justify-content-center h-25">
+      <div class="d-flex justify-content-center mt-5">
         <h2 class="text-center w-100 px-3">{{ send }}</h2>
       </div>
     </div>
@@ -79,10 +79,14 @@
 <style lang="scss" scoped>
 
   #formContact {
-    height: 100vh;
+    height: 100%;
 
     h1 {
       font-size: 6rem;
+    }
+
+    form{
+      margin: auto;
     }
 
     button {
@@ -98,7 +102,8 @@
       }
 
       form {
-        width: 100% !important;
+        width: 90% !important;
+        margin: auto;
 
         button {
           width: 100% !important;

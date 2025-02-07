@@ -13,7 +13,7 @@
       </div>
       <!-- select -->
       <div id="select">
-        <label class="text-black" for="technologies">Technologies</label>
+        <label for="technologies">Technologies</label>
         <br />
         <select class="ms-auto h-50" name="technologies" id="technologies" @change="setParams()" v-model="techno">
           <option value="">All</option>
@@ -94,6 +94,7 @@
     }
 
     select {
+      width: 110px;
       border: 3px solidrgb(255, 168, 76);
       border-radius: 20px;
       padding: 5px;

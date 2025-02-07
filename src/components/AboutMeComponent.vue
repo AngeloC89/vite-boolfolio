@@ -3,7 +3,7 @@
         <div class="my-3">
             <h1>//About Me</h1>
         </div>
-        <div class="d-block d-lg-flex ">
+        <div class="d-block d-lg-flex glass">
             <div id="profile_home">
                 <div id="imgContainer">
                     <img class="img-fluid" src="/images/Angelo.png" alt="Angelo">
@@ -88,8 +88,8 @@
     }
 
     #aboutMe {
-        height: 100vh;
-        overflow: hidden;
+        height: 100%;
+        //overflow: hidden;
 
 
 
@@ -138,8 +138,6 @@
         #description {
 
             p {
-                height: 700px;
-                overflow-y: scroll;
                 font-size: 2rem;
                 font-family: "Sour Gummy", serif;
                 margin: 20px 0px;
@@ -205,8 +203,7 @@
 
             #description {
                 padding: 5px;
-                height: 200px;
-                overflow: scroll;
+            
 
                 p {
                     font-size: 1rem;

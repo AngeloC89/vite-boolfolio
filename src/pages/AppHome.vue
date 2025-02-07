@@ -16,11 +16,13 @@
                 </li>
             </ul>
         </nav>
-        <div id="sectionOne" class=" pt-5">
-            <h1 id="title" class="text-center neon">Welcome to my page...</h1>
-            <h2 id="subtitle" class="text-center neon">I am Angelo</h2>
+        <div id="sectionOne">
+            <div class="overflow-hidden">
+                <h1 id="title" class="text-center neon">Welcome to my page...</h1>
+                <h2 id="subtitle" class="text-center neon">I am Angelo</h2>
+            </div>
             <div id="welcome" class="d-flex justify-content-center w-100 gap-3">
-                <div id="left">
+                <div id="left" class="glass">
                     <ul class="d-flex flex-column align-items-center p-0">
                         <li class="list-unstyled p-0 p-lg-3 brand">
                             <a href="https://www.linkedin.com/in/angelociulla89">
@@ -35,8 +37,9 @@
                         </li>
                     </ul>
                 </div>
-                <div id="imgW" class="d-none d-lg-flex row">
-                    <div class="col-4 d-flex justify-content-center align-items-center" v-for="(tecno, index) in store.tecnoList " :key="index">
+                <div id="imgW" class="d-none d-lg-flex row glass">
+                    <div class="col-4 d-flex justify-content-center align-items-center"
+                        v-for="(tecno, index) in store.tecnoList " :key="index">
                         <img class="img-fluid w-50" :src="`/images/tecnologie/` + tecno" :alt="tecno">
                     </div>
 
@@ -126,11 +129,6 @@
 
 
 <style lang="scss" scoped>
-    .debug {
-        border: 1px solid red;
-    }
-
-
     #home {
         height: 100%;
         overflow: scroll;
@@ -142,11 +140,11 @@
 
         nav {
             width: 100%;
-            height: 50px;
+            height: 60px;
             z-index: 1000;
             box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.5);
 
-            top: 3px;
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -167,6 +165,7 @@
         }
 
         #sectionOne {
+            padding-top: 130px;
 
 
 
@@ -192,29 +191,15 @@
 
                 #left,
                 #imgW {
+                    //glass effect
                     width: 40%;
-                    background: rgba(167, 167, 167, 0.2);
-                    border-radius: 16px;
-                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                    backdrop-filter: blur(15px);
-                    -webkit-backdrop-filter: blur(15px);
-                    border: 1px solid rgba(128, 128, 128, 0.185);
 
                 }
-
             }
-
-
-            #imgW {
-             
-            }
-
-
         }
 
         #about,
         #projectsPage,
-        #sectionOne,
         #contact {
 
             width: 100%;
