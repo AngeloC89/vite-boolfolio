@@ -5,17 +5,17 @@
     <div class="d-flex flex-column justify-content-center glass py-5">
       <form @submit.prevent="Sending()" class="w-50">
         <div class=" d-flex flex-column justify-content-center w-100">
-          <label class="form-label" for="name">Inserisci il tuo nome</label>
+          <label class="form-label" for="name">Enter your name</label>
           <input class="form-control mb-3" v-model="formData.name" type="text" name="name" id="name" placeholder="Name"
             required>
         </div>
         <div class=" d-flex flex-column justify-content-center">
-          <label class="form-label" for="email">Inserisci la tua email</label>
+          <label class="form-label" for="email">Enter your email</label>
           <input class="form-control mb-3" v-model="formData.email" type="email" name="email" id="email"
             placeholder="example@domain.com" required>
         </div>
         <div class=" d-flex flex-column justify-content-center">
-          <label class="form-label" for="message">Messaggio</label>
+          <label class="form-label" for="message">Messagge</label>
           <textarea class="form-control mb-3" v-model="formData.message" name="message" cols="30" rows="10"
             placeholder="Message" required></textarea>
         </div>
@@ -58,18 +58,23 @@
         formData.append('message', this.formData.message);
 
         axios.post(`${this.store.apiBaseUrl}/send-email`, formData).then((res) => {
-          console.log(res.data);
-          this.send = ('Il tuo messaggio è stato inviato con successo!');
+          //console.log(res.data);
+          this.send = ('Your message has been sent successfully!');
           this.resetForm(); // Resetta il form dopo l'invio
         }).catch((error) => {
           //console.log(error);
           //this.errors = error.response.data.errors;
           //console.log(this.errors);
         }).finally(() => {
+          this.formData = {
+            name: '',
+            email: '',
+            message: '',
+          };
 
         });
-
-
+      
+      
       },
     },
   }
@@ -85,7 +90,7 @@
       font-size: 6rem;
     }
 
-    form{
+    form {
       margin: auto;
     }
 

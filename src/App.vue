@@ -1,7 +1,7 @@
 <template>
 
 
-  <SidebarComponent />
+ 
   <MainComponent />
   
 
@@ -28,7 +28,6 @@
     methods: {
     },
     mounted() {
-      this.store.methods.getAllProjects();
       this.store.methods.getTechnologies();
 
     },
