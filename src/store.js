@@ -10,7 +10,6 @@ export const store = reactive({
   technologies: [],
   loader: false,
   params: {}, // parametri di ricerca... va inizializzata come oggetto!
-  iconId: null,
 
   methods: {
     getAllProjects() {
