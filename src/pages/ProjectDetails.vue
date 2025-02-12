@@ -148,10 +148,6 @@
 
       padding: 20px;
 
-      p {
-        font-family: 'Courier New', Courier, monospace;
-      }
-
     }
   }
 
