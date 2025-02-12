@@ -25,7 +25,7 @@ const router = createRouter({
       component: NotFound,
     },
     {
-      path: "/iconProject/:id/:name",
+      path: "/iconProject/:id",
       name: "iconProject",
       component: IconProject,
     },

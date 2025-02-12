@@ -39,11 +39,11 @@
                 </div>
                 <div id="imgW" class="d-flex row glass p-2">
                     <h3 class="p-0">Projects</h3>
-                    <div class=" col-6 col-lg-4 d-flex justify-content-center align-items-center"
+                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center"
                         v-for="(tecno, index) in store.technologies" :key="tecno.id">
                         <router-link id="icon" class="d-flex justify-content-center align-items-center"
-                            @click="setParams(tecno.id)" :to="{ name: 'iconProject', params: { id: tecno.id, name: tecno.name } } ">
-                            <img class="img-fluid" :src="`/images/tecnologie/` + tecno.name + `.png`"
+                            @click="setParams(tecno.id)" :to="{ name: 'iconProject', params: { id: tecno.id } }">
+                            <img class="" :src="`/images/tecnologie/` + tecno.name + `.png`"
                                 :alt="tecno.name" />
                         </router-link>
                     </div>
@@ -63,7 +63,7 @@
     import { store } from "../store.js";
     import AboutMeComponent from "../components/AboutMeComponent.vue";
     import ContactMeComponent from "@/components/ContactMeComponent.vue";
-    import { watch } from "vue";
+   
 
     export default {
         name: "AppHome",
@@ -75,6 +75,7 @@
         data() {
             return {
                 store,
+                
             };
         },
         methods: {
@@ -82,7 +83,6 @@
                 const title = document.getElementById("title");
                 const subtitle = document.getElementById("subtitle");
 
-                8;
                 // Imposta lo stile iniziale
                 title.style.transform = "translateX(-100%)";
                 subtitle.style.transform = "translateX(100%)";
@@ -113,7 +113,8 @@
         mounted() {
             this.store.projects = [];
             this.animationTitle();
-        },
+            this.store.methods.getTechnologies();
+        }
     };
 </script>
 
@@ -163,6 +164,8 @@
 
                 #left {
                     width: 40%;
+                    aspect-ratio: 16/4;
+
                     .brand {
                         font-size: 4rem;
 
@@ -172,20 +175,18 @@
                     }
                 }
 
-               
                 #imgW {
                     width: 40%;
-                    min-height: 460px;
-                    height: auto;
+                    aspect-ratio: 16/4;
 
-                    #icon{
+                    #icon {
                         padding: 50px;
-                        img{
-                            width: 100%;}
+
+                        img {
+                            width: 6.25rem;
+                        }
                     }
                 }
-
-                
             }
         }
 
@@ -233,11 +234,12 @@
                     #imgW {
                         width: 80%;
 
-                        #icon{
+                        #icon {
                             padding: 20px;
 
-                            img{
-                                width: 100%;}
+                            img {
+                                width: 100%;
+                            }
                         }
                     }
                 }
