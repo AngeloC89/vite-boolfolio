@@ -3,7 +3,7 @@ import axios from "axios";
 import IconProject from "./pages/iconProject.vue";
 
 export const store = reactive({
-  apiBaseUrl: "https://https://web-production-5365.up.railway.app/api",
+  apiBaseUrl: "https://web-production-5365.up.railway.app/api",
   //apiBaseUrl: "http://127.0.0.1:8000/api",
   //imgBaseUrl: "https://",
   projects: [],
